@@ -7,7 +7,7 @@ CONFIG_FILE="$SCRIPT_DIR/.n8n"
 # Check if .n8n file exists
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "X .n8n config file not found at $CONFIG_FILE"
-    exit 1
+    exit 0
 fi
 
 # Load variables from .n8n
@@ -27,13 +27,13 @@ elif [ "$TestOrProd" == "PROD" ]; then
     TARGET_URL="$PRODURL"
 else
     echo "TestOrProd must be either TEST or PROD. Got: '$TestOrProd'"
-    exit 1
+    exit 0
 fi
 
 # Validate MESSAGE
 if [ -z "$MESSAGE" ]; then
     echo "MESSAGE not set in .n8n file."
-    exit 1
+    exit 0
 fi
 
 # Escape double quotes in MESSAGE for safe JSON
@@ -58,7 +58,7 @@ echo "==================="
 
 if [ $status -ne 0 ]; then
     echo "POST request failed."
-    exit 1
+    exit 0
 fi
 
 echo "POST request sent to $TARGET_URL"
