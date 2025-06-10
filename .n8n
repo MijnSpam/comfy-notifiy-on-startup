@@ -1,0 +1,5 @@
+# when TestOrProd is not set to either TEST or PROD the script will exit!
+TestOrProd=TEST
+TESTURL=https://example.com/test-endpoint
+PRODURL=https://example.com/prod-endpoint
+MESSAGE=Your-reboot-message
